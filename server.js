@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
     res.json("its working");
 })
 app.get('/top3', (req, res) => {
+    var top3 = knex.select("*").from("players").orderBy({ column: "score", order: "desc" }).limit(3);
+    console.log(top3);
     res.json("its working");
 });
 app.post('/addToLeaderBoard', (req, res) => {
