@@ -32,4 +32,5 @@ app.post('/addToLeaderBoard', (req, res) => {
         name: name,
         score: score
     }).catch((err) => res.json("error registering"));
+    res.json("registered");
 });
