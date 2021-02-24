@@ -31,5 +31,5 @@ app.post('/addToLeaderBoard', (req, res) => {
     knex('players').insert({
         name: name,
         score: score
-    }).onConflict("name").catch((err) => res.json("error registering"));
+    }).catch((err) => res.json("error registering"));
 });
