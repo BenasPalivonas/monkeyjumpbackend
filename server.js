@@ -19,10 +19,10 @@ app.listen(process.env.PORT, () => {
 app.get('/', (req, res) => {
     res.json("its working");
 })
-app.get('/top3', () => {
+app.get('/top3', (req, res) => {
     res.json("its working");
 });
-app.post('/addToLeaderBoard', () => {
+app.post('/addToLeaderBoard', (req, res) => {
     const { name, score } = req.body;
     console.log(req.body);
     knex('players').insert({
