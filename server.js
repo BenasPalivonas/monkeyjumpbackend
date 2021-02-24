@@ -19,3 +19,14 @@ app.listen(process.env.PORT, () => {
 app.get('/', (req, res) => {
     res.json("its working")
 })
+app.get('/top3', () => {
+
+});
+app.post('/addToLeaderBoard', () => {
+    const { name, score } = req.body;
+    console.log(req.body);
+    knex('players').insert({
+        name: name,
+        score: score
+    }).then(res.json("registered"));
+});
