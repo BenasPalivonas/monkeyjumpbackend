@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     res.json("its working");
 })
 app.get('/top3', (req, res) => {
-    knex("players").orderBy({ column: "score", order: "desc" }).limit(3).then(user => {
+    knex('players').orderBy('score', 'desc').limit(3).then(user => {
         console.log(user);
     });
     res.json("its working");
