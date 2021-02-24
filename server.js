@@ -20,11 +20,10 @@ app.get('/', (req, res) => {
     res.json("its working");
 })
 app.get('/top3', (req, res) => {
-    var top3Players = [];
-    knex('players').orderBy('score', 'desc').limit(3).then(user => {
-        top3Players.push(user);
+    knex('players').orderBy('score', 'desc').limit(3).then(top3Players => {
+        res.json(top3Players);
     });
-    res.json(top3Players);
+
 });
 app.post('/addToLeaderBoard', (req, res) => {
     const { name, score } = req.body;
